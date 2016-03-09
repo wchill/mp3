@@ -1,0 +1,17 @@
+<div ng-controller="moviegallery">
+  <div class="row">
+    <form name="genreSelect">
+      <div class="columns large-2 medium-3 small-6 end" ng-repeat="genre in genres">
+        <input type="radio" ng-model="$parent.selectedGenre" value="{{genre}}" name="genre">
+        <label for="{{genre}}">{{genre}}</label>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="columns large-2 medium-4 small-6 end" ng-repeat="movie in movies | filter:filterGenre">
+      <a href="#/details/{{movie.imdbID}}">
+        <img ng-src="./data/images/{{movie.imdbID}}.jpg" class="poster">
+      </a>
+    </div>
+  </div>
+</div>

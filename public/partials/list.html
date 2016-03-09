@@ -1,0 +1,44 @@
+<div ng-controller="movielist">
+    <form name="searchBox">
+      <div class="row">
+        <input type="text" ng-model="query" name="querystring">
+      </div>
+      <div class="row">
+        <div class="columns small-4">
+          <input type="radio" ng-model="predicate" value="title" name="sortby">
+          <label>Name</label>
+        </div>
+        <div class="columns small-4">
+          <input type="radio" ng-model="predicate" value="rank" name="sortby">
+          <label>Rank</label>
+        </div>
+        <div class="columns small-4">
+          <input type="radio" ng-model="predicate" value="" name="sortby">
+          <label>Unsorted</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-6">
+          <input type="radio" ng-model="order" value="ascending" name="order" ng-change="setOrder('ascending')">
+          <label>Ascending</label>
+        </div>
+        <div class="columns small-6">
+          <input type="radio" ng-model="order" value="descending" name="order" ng-change="setOrder('descending')">
+          <label>Descending</label>
+        </div>
+    </div>
+  </form>
+  <div class="row" ng-repeat="movie in movies | filter:query | orderBy:predicate:reverseSort">
+    <a href="#/details/{{movie.imdbID}}">
+      <div class="media-object">
+        <div class="media-object-section align-self-center">
+          <img ng-src="data/images/{{movie.imdbID}}.jpg" class="poster-thumbnail">
+        </div>
+        <div class="media-object-section main-section">
+          <h5>{{movie.title}}</h5>
+          <p>Rank: {{movie.rank}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

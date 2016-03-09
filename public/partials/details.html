@@ -1,0 +1,22 @@
+<div class="details columns large-6 medium-8 small-12 small-centered" ng-controller="moviedetails">
+  <div class="media-object">
+    <div class="media-object-section align-self-center">
+      <img ng-src="data/images/{{movie.imdbID}}.jpg" class="poster">
+    </div>
+    <div class="media-object-section main-section">
+      <h3>{{movie.title}}</h3>
+      <p>{{movie.plot}}</p>
+      <p>Released: {{movie.released}}</p>
+      <p>Runtime: {{movie.runtime}}</p>
+      <p>Awards: {{movie.awards}}</p>
+    </div>
+  </div>
+  <div class="clearfix">
+    <a href="#/details/{{prev}}" class="float-left button">
+      Previous
+    </a>
+    <a href="#/details/{{next}}" class="float-right button">
+      Next
+    </a>
+  </div>
+</div>
